@@ -29,12 +29,7 @@ func LoadConfig() *Config {
 		ServerPort:   getEnv("SERVER_PORT", "8080"),
 		DBHost:       getEnv("POSTGRES_HOST", "localhost"),
 		DBPort:       getEnv("POSTGRES_PORT", "5432"),
-		DBUser:       getEnv("POSTGRES_USER", "patrick"),
-		DBPassword:   getEnv("POSTGRES_PASSWORD", ""),
-		DBName:       getEnv("POSTGRES_DB", "crm_app_db_dev"),
-		S3Bucket:     getEnv("S3_BUCKET", "report-generator-bucket"),
-		DynamoDBTable: getEnv("DYNAMODB_TABLE", "ReportMetadataTable"),
-		AWSRegion:    getEnv("AWS_REGION", "eu-north-1"),
+
 	}
 }
 
