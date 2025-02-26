@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"log"
-	"os"
 	"net/http"
+	"os"
 
 	"github.com/labstack/echo/v4"
 	"github.com/patrick-selin/crm-app-report-generator-service/internal/repository"

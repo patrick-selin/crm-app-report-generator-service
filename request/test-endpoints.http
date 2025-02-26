@@ -11,10 +11,6 @@ Content-Type: application/json
   "pay": "load"
 }
 
-### GET orders
-GET http://localhost:80/api/v1/reports/health HTTP/1.1
-Content-Type: application/json
-
 
 ### GET orders
 GET http://localhost:8080/health HTTP/1.1
