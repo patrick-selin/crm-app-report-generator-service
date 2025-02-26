@@ -14,14 +14,14 @@ import (
 func GetAllOrdersHandler(c echo.Context) error {
 	// Ensure logs are printed to stdout
 	log.SetOutput(os.Stdout)
-
 	log.Println("GetAllOrdersHandler: Start")
 
 	service := services.NewOrderService(repository.NewOrderRepository())
 	orders, err := service.GetAllOrders()
+	
 	if err != nil {
 		log.Printf("GetAllOrdersHandler: Error: %v", err)
-		return c.JSON(http.StatusInternalServerError, utils.NewErrorResponse(err.Error()))
+		return c.JSON(http.StatusInternalServerError, utils.NewErrorResponse("Failed to retrieve orders", err))
 	}
 
 	log.Printf("GetAllOrdersHandler: Success. Orders: %v", orders)

@@ -1,22 +1,29 @@
 package utils
 
-type Response struct {
-	Status  string      `json:"status"`
-	Message string      `json:"message"`
-	Data    interface{} `json:"data,omitempty"`
+type ErrorResponse struct {
+	Status  string `json:"status"`
+	Message string `json:"message"`
+	Error   string `json:"error"`
 }
 
-func NewSuccessResponse(message string, data interface{}) Response {
-	return Response{
-		Status:  "success2",
+type SuccessResponse struct {
+	Status  string      `json:"status"`
+	Message string      `json:"message"`
+	Data    interface{} `json:"data"`
+}
+
+func NewErrorResponse(message string, err error) ErrorResponse {
+	return ErrorResponse{
+		Status:  "error",
 		Message: message,
-		Data:    data,
+		Error:   err.Error(),
 	}
 }
 
-func NewErrorResponse(message string) Response {
-	return Response{
-		Status:  "error",
+func NewSuccessResponse(message string, data interface{}) SuccessResponse {
+	return SuccessResponse{
+		Status:  "success",
 		Message: message,
+		Data:    data,
 	}
 }
