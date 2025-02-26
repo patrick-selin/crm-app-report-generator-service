@@ -6,10 +6,12 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/patrick-selin/crm-app-report-generator-service/internal/database"
 	"github.com/patrick-selin/crm-app-report-generator-service/internal/handlers"
 )
 
 func main() {
+	database.ConnectDB()
 	e := echo.New()
 
 	e.Use(middleware.Logger())
