@@ -8,11 +8,13 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/patrick-selin/crm-app-report-generator-service/internal/database"
 	"github.com/patrick-selin/crm-app-report-generator-service/internal/handlers"
+	"github.com/patrick-selin/crm-app-report-generator-service/internal/utils"
 )
 
 func main() {
 	database.ConnectDB()
 	e := echo.New()
+	e.Validator = utils.NewValidator()
 
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
@@ -20,6 +22,7 @@ func main() {
 	e.GET("/health", handlers.HealthCheckHandler)
 
 	api := e.Group("/api/v1/reports")
+	api.POST("/new", handlers.CreateReportHandler) 
 	api.GET("/orders", handlers.GetAllOrdersHandler)
 
 	port := "8080"
