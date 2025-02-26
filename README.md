@@ -10,3 +10,19 @@ crm-app-report-generator-service/
 │   └── report-status/        
 │── src/                          # Go Application Source Code
 ```
+
+
+
+// notes
+```
+Express:  Router → Controller → Service → Response
+Go/Echo:  Router → Handler → Service → Utility/Response
+```
+
+folder structure? vai ei
+handlers->services->stores->models
+
+global error handeling?
+middlewares... maybe JWT, others?
+postgres driver or ORM = psx, gorm ?
+
