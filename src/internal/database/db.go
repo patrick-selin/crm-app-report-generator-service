@@ -6,7 +6,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/patrick-selin/crm-app-report-generator-service/internal/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -33,12 +32,17 @@ func ConnectDB() {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 
-	// Get the underlying sql.DB to manage connection pool
 	sqlDB, err := db.DB()
 	if err != nil {
 		log.Fatalf("Failed to get DB instance: %v", err)
 	}
 
+	if err = sqlDB.Ping(); err != nil {
+		log.Fatalf("Failed to ping database: %v", err)
+	} else {
+		log.Println("Database connection is healthy.")
+	}
+	
 	sqlDB.SetMaxOpenConns(25)
 	sqlDB.SetMaxIdleConns(25)
 	sqlDB.SetConnMaxLifetime(5 * time.Minute)
@@ -73,13 +77,15 @@ func ConnectDB() {
 		log.Println("ENUM type order_status already exists.")
 	}
 
-
 	// Run migrations
-	err = db.AutoMigrate(&models.Order{}, &models.OrderItem{})
-	if err != nil {
-		log.Fatalf("Failed to run migrations: %v", err)
-	}
+	// err = db.AutoMigrate(&models.Order{}, &models.OrderItem{})
+	// if err != nil {
+	// 	log.Fatalf("Failed to run migrations: %v", err)
+	// }
+
+	db = db.Debug()
 
 	log.Println("Connected to database successfully and migrations ran!")
 	DB = db
+	
 }

@@ -12,7 +12,7 @@ type Order struct {
 	OrderDate   time.Time   `gorm:"type:timestamp without time zone;default:now()" json:"order_date"`
 	CreatedAt   time.Time   `gorm:"autoCreateTime" json:"created_at"`
 	UpdatedAt   time.Time   `gorm:"autoUpdateTime" json:"updated_at"`
-	OrderItems  []OrderItem `gorm:"foreignKey:OrderID;references:OrderID;constraint:OnDelete:CASCADE;" json:"order_items"`
+	OrderItems  []OrderItem `gorm:"foreignKey:OrderID;references:OrderID" json:"order_items"`
 }
 
 type OrderItem struct {

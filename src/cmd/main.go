@@ -18,10 +18,12 @@ func main() {
 
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	
 
 	e.GET("/health", handlers.HealthCheckHandler)
 
 	api := e.Group("/api/v1/reports")
+	
 	api.POST("/new", handlers.CreateReportHandler) 
 	api.GET("/orders", handlers.GetAllOrdersHandler)
 
