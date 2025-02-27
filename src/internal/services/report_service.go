@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"time"
+
 	"github.com/google/uuid"
 	"github.com/patrick-selin/crm-app-report-generator-service/internal/models"
 	"github.com/patrick-selin/crm-app-report-generator-service/internal/repository"
@@ -11,14 +12,14 @@ import (
 )
 
 type ReportService struct {
-	OrderRepo *repository.OrderRepository
-	S3Storage *storage.S3Storage
+	OrderRepo    *repository.OrderRepository
+	ReportStorage *storage.ReportStorage
 }
 
 func NewReportService() *ReportService {
 	return &ReportService{
-		OrderRepo: repository.NewOrderRepository(),
-		S3Storage: storage.NewS3Storage(),
+		OrderRepo:     repository.NewOrderRepository(),
+		ReportStorage: storage.NewReportStorage(),
 	}
 }
 
@@ -42,7 +43,7 @@ func (s *ReportService) CreateReport(request models.ReportRequest) (string, erro
 		if err != nil {
 			return "", err
 		}
-		csvURL, err = s.S3Storage.UploadFile(csvFilename, csvData)
+		csvURL, err = s.ReportStorage.UploadFile(csvFilename, csvData)
 		if err != nil {
 			return "", err
 		}
@@ -53,7 +54,7 @@ func (s *ReportService) CreateReport(request models.ReportRequest) (string, erro
 		if err != nil {
 			return "", err
 		}
-		pdfURL, err = s.S3Storage.UploadFile(pdfFilename, pdfData)
+		pdfURL, err = s.ReportStorage.UploadFile(pdfFilename, pdfData)
 		if err != nil {
 			return "", err
 		}
@@ -72,7 +73,7 @@ func (s *ReportService) CreateReport(request models.ReportRequest) (string, erro
 		UpdatedAt:    time.Now(),
 	}
 
-	err = s.S3Storage.StoreReportMetadata(reportMetadata)
+	err = s.ReportStorage.StoreReportMetadata(reportMetadata)
 	if err != nil {
 		return "", err
 	}

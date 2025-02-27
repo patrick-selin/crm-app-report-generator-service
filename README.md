@@ -22,6 +22,8 @@ Go/Echo:  Router → Handler → Service → Utility/Response
 folder structure? vai ei
 handlers->services->stores->models
 
+repository / storage
+
 global error handeling?
 middlewares... maybe JWT, others?
 postgres driver or ORM = psx, gorm ?

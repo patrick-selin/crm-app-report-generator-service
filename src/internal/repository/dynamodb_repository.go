@@ -20,7 +20,7 @@ type DynamoDBRepository struct {
 func NewDynamoDBRepository() *DynamoDBRepository {
 	return &DynamoDBRepository{
 		Client: storage.NewDynamoDBClient(),
-		Table:  "ReportMetadataTable", // musita
+		Table:  "ReportMetadataTable", // muista vaihtaa
 	}
 }
 
