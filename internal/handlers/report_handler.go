@@ -1,5 +1,5 @@
 // src/internal/handlers/lambda/report_handler.go
-package lambdahandlers
+package handlers
 
 import (
 	"context"

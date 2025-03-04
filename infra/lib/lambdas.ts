@@ -34,14 +34,17 @@ export class ReportLambdas extends Construct {
     this.reportLambda = new lambda.Function(this, "ReportLambda", {
       runtime: lambda.Runtime.PROVIDED_AL2,
       handler: "bootstrap",
-      code: lambda.Code.fromAsset(path.join(__dirname, "../../lambda/report-generator"), {
-        bundling: {
-          image: lambda.Runtime.PROVIDED_AL2.bundlingImage,
-          command: [
-            "bash",
-            "-c",
-            "GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o /asset-output/bootstrap main.go",
-          ],
+      code: lambda.Code.fromAsset(
+        path.join(__dirname, "../../lambda/report-generator"),
+        {
+          bundling: {
+            image: lambda.Runtime.PROVIDED_AL2.bundlingImage,
+            command: [
+              "bash",
+              "-c",
+              "GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o /asset-output/bootstrap main.go",
+     
+            ],
           volumes: [
             {
               hostPath: "/tmp/cdk-go-build",
