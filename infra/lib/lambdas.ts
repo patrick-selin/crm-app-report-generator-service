@@ -35,27 +35,24 @@ export class ReportLambdas extends Construct {
       runtime: lambda.Runtime.PROVIDED_AL2,
       handler: "bootstrap",
       code: lambda.Code.fromAsset(
-        path.join(__dirname, "../../lambda/report-generator"),
+        path.join(__dirname, "../.."), 
         {
           bundling: {
             image: lambda.Runtime.PROVIDED_AL2.bundlingImage,
             command: [
               "bash",
               "-c",
-              "GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o /asset-output/bootstrap main.go",
-     
+              // Create writable cache directories and then 
+              // Change directory into lambda/report-generator to build
+              "mkdir -p /tmp/go-build && mkdir -p /tmp/go-mod-cache && \
+              export GOCACHE=/tmp/go-build && \
+              export GOMODCACHE=/tmp/go-mod-cache && \
+              cd lambda/report-generator && \
+              GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o /asset-output/bootstrap main.go"
             ],
-          volumes: [
-            {
-              hostPath: "/tmp/cdk-go-build",
-              containerPath: "/go/pkg/mod",
-            },
-          ],
-          environment: {
-            GOCACHE: "/go/pkg/mod",
           },
-        },
-      }),
+        }
+      ),
       environment: {
         BUCKET_NAME: props.s3Resources.reportsBucket.bucketName,
         TABLE_NAME: props.dynamoDBResources.reportMetadataTable.tableName,

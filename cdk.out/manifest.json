@@ -1,0 +1,155 @@
+{
+  "version": "39.0.0",
+  "artifacts": {
+    "ReportGeneratorStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ReportGeneratorStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ReportGeneratorStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://905418334268/eu-north-1",
+      "properties": {
+        "templateFile": "ReportGeneratorStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::905418334268:role/cdk-hnb659fds-deploy-role-905418334268-eu-north-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::905418334268:role/cdk-hnb659fds-cfn-exec-role-905418334268-eu-north-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-905418334268-eu-north-1/bc6011f2ef00ad9e2d91e9c09ac309f2e6a2d77e20fbab9e66eb855a0f40609e.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ReportGeneratorStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::905418334268:role/cdk-hnb659fds-lookup-role-905418334268-eu-north-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "ReportGeneratorStack.assets"
+      ],
+      "metadata": {
+        "/ReportGeneratorStack/S3Resources/ReportsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "S3ResourcesReportsBucket36B1003E"
+          }
+        ],
+        "/ReportGeneratorStack/DynamoDBResources/ReportMetadataTable/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBResourcesReportMetadataTable16CCFDD6"
+          }
+        ],
+        "/ReportGeneratorStack/ReportLambdas/LambdaExecutionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ReportLambdasLambdaExecutionRoleC22E619A"
+          }
+        ],
+        "/ReportGeneratorStack/ReportLambdas/LambdaExecutionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ReportLambdasLambdaExecutionRoleDefaultPolicy3F7181C2"
+          }
+        ],
+        "/ReportGeneratorStack/ReportLambdas/ReportLambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ReportLambdasReportLambda8B2F4387"
+          }
+        ],
+        "/ReportGeneratorStack/ApiGateway/ReportApi/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGatewayReportApi81FFC041"
+          }
+        ],
+        "/ReportGeneratorStack/ApiGateway/ReportApi/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGatewayReportApiCloudWatchRole086667CA"
+          }
+        ],
+        "/ReportGeneratorStack/ApiGateway/ReportApi/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGatewayReportApiAccountE9C99E97"
+          }
+        ],
+        "/ReportGeneratorStack/ApiGateway/ReportApi/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGatewayReportApiDeployment2074B832d7f1a13bc359069a0f62eb32337d2347"
+          }
+        ],
+        "/ReportGeneratorStack/ApiGateway/ReportApi/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGatewayReportApiDeploymentStageprod397E47F7"
+          }
+        ],
+        "/ReportGeneratorStack/ApiGateway/ReportApi/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGatewayReportApiEndpointE0D68BD9"
+          }
+        ],
+        "/ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGatewayReportApireportsD455D127"
+          }
+        ],
+        "/ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST/ApiPermission.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGatewayReportApireportsPOSTApiPermissionReportGeneratorStackApiGatewayReportApiEEACDE9CPOSTreportsD749B4DA"
+          }
+        ],
+        "/ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST/ApiPermission.Test.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGatewayReportApireportsPOSTApiPermissionTestReportGeneratorStackApiGatewayReportApiEEACDE9CPOSTreports829B5AE9"
+          }
+        ],
+        "/ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGatewayReportApireportsPOSTCE82F7B9"
+          }
+        ],
+        "/ReportGeneratorStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ReportGeneratorStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ReportGeneratorStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ReportGeneratorStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
