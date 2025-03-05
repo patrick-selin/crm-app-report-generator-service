@@ -9,7 +9,9 @@ import (
 )
 
 type Request struct {
-	ReportID string `json:"report_id"`
+	OrderIDs     []string `json:"order_ids"`
+	ReportType   string   `json:"report_type"`
+	IncludeItems bool     `json:"include_items"`
 }
 
 type Response struct {
@@ -17,11 +19,12 @@ type Response struct {
 }
 
 func HandleRequest(ctx context.Context, req Request) (Response, error) {
-	// Call the same service used by Echo
 	service := services.NewReportService()
+
 	reportID, err := service.CreateReport(models.ReportRequest{
-		OrderIDs: []string{req.ReportID},
-		ReportType: "pdf", 
+		OrderIDs:     req.OrderIDs,
+		ReportType:   req.ReportType,
+		IncludeItems: req.IncludeItems,
 	})
 	if err != nil {
 		return Response{Message: "Failed to generate report"}, err

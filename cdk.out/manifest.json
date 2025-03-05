@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::905418334268:role/cdk-hnb659fds-deploy-role-905418334268-eu-north-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::905418334268:role/cdk-hnb659fds-cfn-exec-role-905418334268-eu-north-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-905418334268-eu-north-1/bc6011f2ef00ad9e2d91e9c09ac309f2e6a2d77e20fbab9e66eb855a0f40609e.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-905418334268-eu-north-1/e5c9c31de50beba453b1f84d45e3d691e48c20e9b1fb8424b391edeb4049fc7e.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -85,7 +85,7 @@
         "/ReportGeneratorStack/ApiGateway/ReportApi/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ApiGatewayReportApiDeployment2074B832d7f1a13bc359069a0f62eb32337d2347"
+            "data": "ApiGatewayReportApiDeployment2074B8321533ff8f3448fd4b70b50fa4ea6e298f"
           }
         ],
         "/ReportGeneratorStack/ApiGateway/ReportApi/DeploymentStage.prod/Resource": [
@@ -106,22 +106,34 @@
             "data": "ApiGatewayReportApireportsD455D127"
           }
         ],
-        "/ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST/ApiPermission.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports": [
+        "/ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ApiGatewayReportApireportsPOSTApiPermissionReportGeneratorStackApiGatewayReportApiEEACDE9CPOSTreportsD749B4DA"
+            "data": "ApiGatewayReportApireportsnewD0C18A37"
           }
         ],
-        "/ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST/ApiPermission.Test.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports": [
+        "/ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/POST/ApiPermission.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports.new": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ApiGatewayReportApireportsPOSTApiPermissionTestReportGeneratorStackApiGatewayReportApiEEACDE9CPOSTreports829B5AE9"
+            "data": "ApiGatewayReportApireportsnewPOSTApiPermissionReportGeneratorStackApiGatewayReportApiEEACDE9CPOSTreportsnew58B02F29"
           }
         ],
-        "/ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST/Resource": [
+        "/ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/POST/ApiPermission.Test.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports.new": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ApiGatewayReportApireportsPOSTCE82F7B9"
+            "data": "ApiGatewayReportApireportsnewPOSTApiPermissionTestReportGeneratorStackApiGatewayReportApiEEACDE9CPOSTreportsnewF5BB919A"
+          }
+        ],
+        "/ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGatewayReportApireportsnewPOST77950D8C"
+          }
+        ],
+        "/ReportGeneratorStack/ApiGateway/ApiEndpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiGatewayApiEndpoint015055E7"
           }
         ],
         "/ReportGeneratorStack/CDKMetadata/Default": [

@@ -299,7 +299,7 @@
                       "aws:cdk:cloudformation:props": {
                         "code": {
                           "s3Bucket": "cdk-hnb659fds-assets-905418334268-eu-north-1",
-                          "s3Key": "e958ac4bd0f49ccaea104dc0f631abe30138d920eda639e46c600d1592cac35e.zip"
+                          "s3Key": "7bf21e8fdc464cff1b41ba2aa567d14efec98d33fffe447e54e39fc580e69273.zip"
                         },
                         "environment": {
                           "variables": {
@@ -478,7 +478,7 @@
                           "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
                           "aws:cdk:cloudformation:props": {
                             "deploymentId": {
-                              "Ref": "ApiGatewayReportApiDeployment2074B832d7f1a13bc359069a0f62eb32337d2347"
+                              "Ref": "ApiGatewayReportApiDeployment2074B8321533ff8f3448fd4b70b50fa4ea6e298f"
                             },
                             "restApiId": {
                               "Ref": "ApiGatewayReportApi81FFC041"
@@ -537,135 +537,166 @@
                               "version": "2.179.0"
                             }
                           },
-                          "POST": {
-                            "id": "POST",
-                            "path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST",
+                          "new": {
+                            "id": "new",
+                            "path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new",
                             "children": {
-                              "ApiPermission.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports": {
-                                "id": "ApiPermission.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports",
-                                "path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST/ApiPermission.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports",
-                                "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
-                                  "aws:cdk:cloudformation:props": {
-                                    "action": "lambda:InvokeFunction",
-                                    "functionName": {
-                                      "Fn::GetAtt": [
-                                        "ReportLambdasReportLambda8B2F4387",
-                                        "Arn"
-                                      ]
-                                    },
-                                    "principal": "apigateway.amazonaws.com",
-                                    "sourceArn": {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":execute-api:eu-north-1:905418334268:",
-                                          {
-                                            "Ref": "ApiGatewayReportApi81FFC041"
-                                          },
-                                          "/",
-                                          {
-                                            "Ref": "ApiGatewayReportApiDeploymentStageprod397E47F7"
-                                          },
-                                          "/POST/reports"
-                                        ]
-                                      ]
-                                    }
-                                  }
-                                },
-                                "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                                  "version": "2.179.0"
-                                }
-                              },
-                              "ApiPermission.Test.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports": {
-                                "id": "ApiPermission.Test.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports",
-                                "path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST/ApiPermission.Test.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports",
-                                "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
-                                  "aws:cdk:cloudformation:props": {
-                                    "action": "lambda:InvokeFunction",
-                                    "functionName": {
-                                      "Fn::GetAtt": [
-                                        "ReportLambdasReportLambda8B2F4387",
-                                        "Arn"
-                                      ]
-                                    },
-                                    "principal": "apigateway.amazonaws.com",
-                                    "sourceArn": {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":execute-api:eu-north-1:905418334268:",
-                                          {
-                                            "Ref": "ApiGatewayReportApi81FFC041"
-                                          },
-                                          "/test-invoke-stage/POST/reports"
-                                        ]
-                                      ]
-                                    }
-                                  }
-                                },
-                                "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                                  "version": "2.179.0"
-                                }
-                              },
                               "Resource": {
                                 "id": "Resource",
-                                "path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST/Resource",
+                                "path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/Resource",
                                 "attributes": {
-                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
                                   "aws:cdk:cloudformation:props": {
-                                    "authorizationType": "NONE",
-                                    "httpMethod": "POST",
-                                    "integration": {
-                                      "type": "AWS_PROXY",
-                                      "uri": {
-                                        "Fn::Join": [
-                                          "",
-                                          [
-                                            "arn:",
-                                            {
-                                              "Ref": "AWS::Partition"
-                                            },
-                                            ":apigateway:eu-north-1:lambda:path/2015-03-31/functions/",
-                                            {
-                                              "Fn::GetAtt": [
-                                                "ReportLambdasReportLambda8B2F4387",
-                                                "Arn"
-                                              ]
-                                            },
-                                            "/invocations"
-                                          ]
-                                        ]
-                                      },
-                                      "integrationHttpMethod": "POST"
-                                    },
-                                    "resourceId": {
+                                    "parentId": {
                                       "Ref": "ApiGatewayReportApireportsD455D127"
                                     },
+                                    "pathPart": "new",
                                     "restApiId": {
                                       "Ref": "ApiGatewayReportApi81FFC041"
                                     }
                                   }
                                 },
                                 "constructInfo": {
-                                  "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                                  "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
                                   "version": "2.179.0"
+                                }
+                              },
+                              "POST": {
+                                "id": "POST",
+                                "path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/POST",
+                                "children": {
+                                  "ApiPermission.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports.new": {
+                                    "id": "ApiPermission.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports.new",
+                                    "path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/POST/ApiPermission.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports.new",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "ReportLambdasReportLambda8B2F4387",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:eu-north-1:905418334268:",
+                                              {
+                                                "Ref": "ApiGatewayReportApi81FFC041"
+                                              },
+                                              "/",
+                                              {
+                                                "Ref": "ApiGatewayReportApiDeploymentStageprod397E47F7"
+                                              },
+                                              "/POST/reports/new"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                                      "version": "2.179.0"
+                                    }
+                                  },
+                                  "ApiPermission.Test.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports.new": {
+                                    "id": "ApiPermission.Test.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports.new",
+                                    "path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/POST/ApiPermission.Test.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports.new",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "ReportLambdasReportLambda8B2F4387",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:eu-north-1:905418334268:",
+                                              {
+                                                "Ref": "ApiGatewayReportApi81FFC041"
+                                              },
+                                              "/test-invoke-stage/POST/reports/new"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                                      "version": "2.179.0"
+                                    }
+                                  },
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/POST/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                      "aws:cdk:cloudformation:props": {
+                                        "authorizationType": "NONE",
+                                        "httpMethod": "POST",
+                                        "integration": {
+                                          "type": "AWS_PROXY",
+                                          "uri": {
+                                            "Fn::Join": [
+                                              "",
+                                              [
+                                                "arn:",
+                                                {
+                                                  "Ref": "AWS::Partition"
+                                                },
+                                                ":apigateway:eu-north-1:lambda:path/2015-03-31/functions/",
+                                                {
+                                                  "Fn::GetAtt": [
+                                                    "ReportLambdasReportLambda8B2F4387",
+                                                    "Arn"
+                                                  ]
+                                                },
+                                                "/invocations"
+                                              ]
+                                            ]
+                                          },
+                                          "integrationHttpMethod": "POST"
+                                        },
+                                        "resourceId": {
+                                          "Ref": "ApiGatewayReportApireportsnewD0C18A37"
+                                        },
+                                        "restApiId": {
+                                          "Ref": "ApiGatewayReportApi81FFC041"
+                                        }
+                                      }
+                                    },
+                                    "constructInfo": {
+                                      "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                                      "version": "2.179.0"
+                                    }
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                                  "version": "2.179.0",
+                                  "metadata": []
                                 }
                               }
                             },
                             "constructInfo": {
-                              "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                              "fqn": "aws-cdk-lib.aws_apigateway.Resource",
                               "version": "2.179.0",
                               "metadata": []
                             }
@@ -689,6 +720,14 @@
                   "fqn": "aws-cdk-lib.aws_apigateway.RestApi",
                   "version": "2.179.0",
                   "metadata": []
+                }
+              },
+              "ApiEndpoint": {
+                "id": "ApiEndpoint",
+                "path": "ReportGeneratorStack/ApiGateway/ApiEndpoint",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.179.0"
                 }
               }
             },

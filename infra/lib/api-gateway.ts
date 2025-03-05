@@ -15,10 +15,19 @@ export class ApiGateway extends Construct {
       restApiName: "Report Generator Service",
     });
 
-    const reportResource = api.root.addResource("reports");
-    reportResource.addMethod(
+    // Base resource: /reports
+    const reportsResource = api.root.addResource("reports");
+
+    // Create sub-resource: /reports/new
+    const newResource = reportsResource.addResource("new");
+    newResource.addMethod(
       "POST",
       new apigateway.LambdaIntegration(props.reportLambdas.reportLambda)
     );
+
+    new cdk.CfnOutput(this, 'ApiEndpoint', {
+      value: api.url, 
+      description: 'The base URL of the API Gateway',
+    });
   }
 }

@@ -154,7 +154,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-905418334268-eu-north-1",
-     "S3Key": "e958ac4bd0f49ccaea104dc0f631abe30138d920eda639e46c600d1592cac35e.zip"
+     "S3Key": "7bf21e8fdc464cff1b41ba2aa567d14efec98d33fffe447e54e39fc580e69273.zip"
     },
     "Environment": {
      "Variables": {
@@ -181,7 +181,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "ReportGeneratorStack/ReportLambdas/ReportLambda/Resource",
-    "aws:asset:path": "asset.e958ac4bd0f49ccaea104dc0f631abe30138d920eda639e46c600d1592cac35e",
+    "aws:asset:path": "asset.7bf21e8fdc464cff1b41ba2aa567d14efec98d33fffe447e54e39fc580e69273",
     "aws:asset:is-bundled": true,
     "aws:asset:property": "Code"
    }
@@ -250,7 +250,7 @@
     "aws:cdk:path": "ReportGeneratorStack/ApiGateway/ReportApi/Account"
    }
   },
-  "ApiGatewayReportApiDeployment2074B832d7f1a13bc359069a0f62eb32337d2347": {
+  "ApiGatewayReportApiDeployment2074B8321533ff8f3448fd4b70b50fa4ea6e298f": {
    "Type": "AWS::ApiGateway::Deployment",
    "Properties": {
     "Description": "Automatically created by the RestApi construct",
@@ -259,7 +259,8 @@
     }
    },
    "DependsOn": [
-    "ApiGatewayReportApireportsPOSTCE82F7B9",
+    "ApiGatewayReportApireportsnewPOST77950D8C",
+    "ApiGatewayReportApireportsnewD0C18A37",
     "ApiGatewayReportApireportsD455D127"
    ],
    "Metadata": {
@@ -270,7 +271,7 @@
    "Type": "AWS::ApiGateway::Stage",
    "Properties": {
     "DeploymentId": {
-     "Ref": "ApiGatewayReportApiDeployment2074B832d7f1a13bc359069a0f62eb32337d2347"
+     "Ref": "ApiGatewayReportApiDeployment2074B8321533ff8f3448fd4b70b50fa4ea6e298f"
     },
     "RestApiId": {
      "Ref": "ApiGatewayReportApi81FFC041"
@@ -302,7 +303,22 @@
     "aws:cdk:path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/Resource"
    }
   },
-  "ApiGatewayReportApireportsPOSTApiPermissionReportGeneratorStackApiGatewayReportApiEEACDE9CPOSTreportsD749B4DA": {
+  "ApiGatewayReportApireportsnewD0C18A37": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Ref": "ApiGatewayReportApireportsD455D127"
+    },
+    "PathPart": "new",
+    "RestApiId": {
+     "Ref": "ApiGatewayReportApi81FFC041"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/Resource"
+   }
+  },
+  "ApiGatewayReportApireportsnewPOSTApiPermissionReportGeneratorStackApiGatewayReportApiEEACDE9CPOSTreportsnew58B02F29": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
@@ -329,16 +345,16 @@
        {
         "Ref": "ApiGatewayReportApiDeploymentStageprod397E47F7"
        },
-       "/POST/reports"
+       "/POST/reports/new"
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST/ApiPermission.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports"
+    "aws:cdk:path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/POST/ApiPermission.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports.new"
    }
   },
-  "ApiGatewayReportApireportsPOSTApiPermissionTestReportGeneratorStackApiGatewayReportApiEEACDE9CPOSTreports829B5AE9": {
+  "ApiGatewayReportApireportsnewPOSTApiPermissionTestReportGeneratorStackApiGatewayReportApiEEACDE9CPOSTreportsnewF5BB919A": {
    "Type": "AWS::Lambda::Permission",
    "Properties": {
     "Action": "lambda:InvokeFunction",
@@ -361,16 +377,16 @@
        {
         "Ref": "ApiGatewayReportApi81FFC041"
        },
-       "/test-invoke-stage/POST/reports"
+       "/test-invoke-stage/POST/reports/new"
       ]
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST/ApiPermission.Test.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports"
+    "aws:cdk:path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/POST/ApiPermission.Test.ReportGeneratorStackApiGatewayReportApiEEACDE9C.POST..reports.new"
    }
   },
-  "ApiGatewayReportApireportsPOSTCE82F7B9": {
+  "ApiGatewayReportApireportsnewPOST77950D8C": {
    "Type": "AWS::ApiGateway::Method",
    "Properties": {
     "AuthorizationType": "NONE",
@@ -399,14 +415,14 @@
      }
     },
     "ResourceId": {
-     "Ref": "ApiGatewayReportApireportsD455D127"
+     "Ref": "ApiGatewayReportApireportsnewD0C18A37"
     },
     "RestApiId": {
      "Ref": "ApiGatewayReportApi81FFC041"
     }
    },
    "Metadata": {
-    "aws:cdk:path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/POST/Resource"
+    "aws:cdk:path": "ReportGeneratorStack/ApiGateway/ReportApi/Default/reports/new/POST/Resource"
    }
   },
   "CDKMetadata": {
@@ -421,6 +437,29 @@
  },
  "Outputs": {
   "ApiGatewayReportApiEndpointE0D68BD9": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "https://",
+      {
+       "Ref": "ApiGatewayReportApi81FFC041"
+      },
+      ".execute-api.eu-north-1.",
+      {
+       "Ref": "AWS::URLSuffix"
+      },
+      "/",
+      {
+       "Ref": "ApiGatewayReportApiDeploymentStageprod397E47F7"
+      },
+      "/"
+     ]
+    ]
+   }
+  },
+  "ApiGatewayApiEndpoint015055E7": {
+   "Description": "The base URL of the API Gateway",
    "Value": {
     "Fn::Join": [
      "",
